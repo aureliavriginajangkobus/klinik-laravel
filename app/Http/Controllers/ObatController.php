@@ -20,7 +20,7 @@ class ObatController extends Controller
         ];
     }
 
-    a
+    
     public function index()
     {
         $daftarObat = Obat::latest()->get();
@@ -42,7 +42,7 @@ class ObatController extends Controller
         return redirect()->route('obat.index')->with('success', 'Data obat berhasil ditambahkan.');
     }
 
-    
+   
     public function edit(Obat $obat)
     {
         return view('obat.edit', compact('obat'));
@@ -57,7 +57,7 @@ class ObatController extends Controller
         return redirect()->route('obat.index')->with('success', 'Data obat berhasil diubah.');
     }
 
-   
+    
     public function destroy(Obat $obat)
     {
         $obat->delete();

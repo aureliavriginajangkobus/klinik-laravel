@@ -28,14 +28,18 @@
           <td>Rp{{ number_format($obat->harga, 0, ',', '.') }}</td>
           <td>{{ $obat->stok }}</td>
           <td>
+            {{-- tombol Edit: terlihat untuk admin dan petugas --}}
             <a href="{{ route('obat.edit', $obat) }}" class="btn btn-warning btn-sm">Edit</a>
 
-            <form method="POST" action="{{ route('obat.destroy', $obat) }}" class="d-inline"
-                  onsubmit="return confirm('Yakin hapus data ini?')">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-            </form>
+            {{-- tombol Hapus: HANYA terlihat kalau role = admin --}}
+            @if (Auth::user()->role === 'admin')
+              <form method="POST" action="{{ route('obat.destroy', $obat) }}" class="d-inline"
+                    onsubmit="return confirm('Yakin hapus data ini?')">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+              </form>
+            @endif
           </td>
         </tr>
       @empty

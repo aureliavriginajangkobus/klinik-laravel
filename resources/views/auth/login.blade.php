@@ -25,7 +25,10 @@
             <button type="submit" class="btn btn-success w-100">Login</button>
           </form>
 
-          <p class="text-muted mt-3 mb-0 small">Akun demo: admin@klinik.test / password123</p>
+          <p class="text-muted mt-3 mb-0 small">
+            Admin: admin@klinik.test / password123<br>
+            Petugas: petugas@klinik.test / password123
+          </p>
         </div>
       </div>
     </div>

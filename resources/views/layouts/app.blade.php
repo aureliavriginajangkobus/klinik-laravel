@@ -14,7 +14,9 @@
       <div class="d-flex align-items-center">
         <a href="{{ route('obat.index') }}" class="btn btn-light btn-sm me-2">Katalog Obat</a>
         <a href="{{ route('obat.create') }}" class="btn btn-outline-light btn-sm me-3">Tambah Obat</a>
+        {{-- nama dan role user yang sedang login --}}
         <span class="text-white me-2">{{ Auth::user()->name }}</span>
+        <span class="badge bg-light text-success me-3">{{ ucfirst(Auth::user()->role) }}</span>
         <form method="POST" action="{{ route('logout') }}">
           @csrf
           <button type="submit" class="btn btn-danger btn-sm">Logout</button>

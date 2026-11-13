@@ -11,10 +11,22 @@ class DatabaseSeeder extends Seeder
     // dijalankan saat: php artisan db:seed
     public function run(): void
     {
-        // akun untuk login (password otomatis di-hash oleh Laravel)
-        User::create([
+        // forceCreate dipakai supaya kolom "role" bisa diisi tanpa mengubah $fillable di User
+        // password otomatis di-hash oleh Laravel
+
+        // Role 1: Admin (lihat, tambah, ubah, hapus)
+        User::forceCreate([
             'name' => 'Aurelia',
             'email' => 'admin@klinik.test',
+            'role' => 'admin',
+            'password' => 'password123',
+        ]);
+
+        // Role 2: Petugas (lihat, tambah, ubah - tidak boleh hapus)
+        User::forceCreate([
+            'name' => 'Petugas Farmasi',
+            'email' => 'petugas@klinik.test',
+            'role' => 'petugas',
             'password' => 'password123',
         ]);
 
